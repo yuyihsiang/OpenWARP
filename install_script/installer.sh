@@ -57,7 +57,7 @@ if [ "$OSTYPE" = "Linux" ];then
         echo "Installing Anaconda2.7 Python"
         curl -O https://repo.continuum.io/archive/Anaconda2-5.3.0-Linux-x86_64.sh
         chmod 777 Anaconda2-5.3.0-Linux-x86_64.sh 
-        ./Anaconda2-5.3.0-Linux-x86_64.sh
+        bash ./Anaconda2-5.3.0-Linux-x86_64.sh
         rm Anaconda2-5.3.0-Linux-x86_64.sh
 
 	# echo "Installing python dependencies"
