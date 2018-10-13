@@ -8,18 +8,18 @@ OSTYPE=`uname`
 # http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in?page=1&tab=votes#tab-top
 
 
-# SOURCE="${BASH_SOURCE[0]}"
+SOURCE="${BASH_SOURCE[0]}"
 
-# while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
-# DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
-# SOURCE="$(readlink "$SOURCE")"
-# [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
-# done
+while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+SOURCE="$(readlink "$SOURCE")"
+[[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
 
-# DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
-# PARENTDIR="$(dirname "${DIR}")"
-# INSTALL_PATH="${PARENTDIR}/source"
-# ROOT="${PARENTDIR}/source"
+DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+PARENTDIR="$(dirname "${DIR}")"
+INSTALL_PATH="${PARENTDIR}/source"
+ROOT="${PARENTDIR}/source"
 
 # NEMOH_FORTRAN="${ROOT}/NemohImproved/Nemoh"
 
@@ -54,13 +54,14 @@ if [ "$OSTYPE" = "Linux" ];then
 	# echo "Installing vtk"
 	# sudo apt-get --yes --force-yes install libvtk5-dev
 
-    # echo "Installing Anaconda2.7 Python"
-    curl -O https://repo.continuum.io/archive/Anaconda3-5.3.0-Linux-x86_64.sh
-    ./Anaconda3-5.3.0-Linux-x86_64.sh
-    rm Anaconda3-5.3.0-Linux-x86_64.sh
+        echo "Installing Anaconda2.7 Python"
+        curl -O https://repo.continuum.io/archive/Anaconda2-5.3.0-Linux-x86_64.sh
+        chmod 777 Anaconda2-5.3.0-Linux-x86_64.sh 
+        ./Anaconda2-5.3.0-Linux-x86_64.sh
+        rm Anaconda2-5.3.0-Linux-x86_64.sh
 
 	# echo "Installing python dependencies"
-	sudo apt-get --yes --force-yes install python-numpy python-scipy python-matplotlib python-pip ipython ipython-notebook python-pandas python-sympy python-nose python-progressbar python-vtk
+	#sudo apt-get --yes --force-yes install python-numpy python-scipy python-matplotlib python-pip ipython ipython-notebook python-pandas python-sympy python-nose python-progressbar python-vtk
 
 	# echo "Installing curl"
 	# sudo apt-get --yes --force-yes install curl

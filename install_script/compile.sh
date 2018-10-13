@@ -182,7 +182,7 @@ elif [ "$OSTYPE"="Darwin" ];then
 	# sudo cp ParaView-4.1.0-Darwin-64bit.app ${ROOT}/openwarpgui/bundled/
 	
 	# echo "Command to test the library path is correctly set "
-	(test -e /Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/OpenWARP/source/NemohImproved/FortranBuild/libnemoh.dylib && echo ’Success’ ) || echo ’Error:Nemoh library not found’.
+	(test -e "$FORTRAN_BUILD"/libnemoh.dylib && echo ’Success’ ) || echo ’Error:Nemoh library not found’.
 	
 	# echo "make sure the nglib-mesh directory is executable"
 	# chmod +x ${ROOT}/openwarp/bundled/meshgenerator/build/nglib-mesh

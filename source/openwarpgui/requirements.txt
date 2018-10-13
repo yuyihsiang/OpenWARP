@@ -6,3 +6,5 @@ capturer
 logutils
 scipy
 jmespath
+twisted
+grin
