@@ -217,5 +217,3 @@ elif [ "$OSTYPE"="Darwin" ];then
 else
  	echo "This OS type is not supported!  "
 fi
-
-

@@ -157,7 +157,7 @@ elif [ "$OSTYPE"="Darwin" ];then
 	mv /usr/local/lib/gcc/4.9/libquadmath.dylib /usr/local/lib/gcc/4.9/disable_libquadmath.dylib
 	
 	# echo "Compiling Nemoh Fortran"
-	cmake -DCMAKE_FortranE_COMPILER="gfortran" $NEMOH_FORTRAN
+	cmake -DCMAKE_Fortran_COMPILER="gfortran" $NEMOH_FORTRAN
 	make
 
 	# echo "copying libnemoh.dylib from FORTRAN_BUILD to lib/directory inside the Anaconda installation Root"
@@ -182,7 +182,7 @@ elif [ "$OSTYPE"="Darwin" ];then
 	# sudo cp ParaView-4.1.0-Darwin-64bit.app ${ROOT}/openwarpgui/bundled/
 	
 	# echo "Command to test the library path is correctly set "
-	(test -e "$FORTRAN_BUILD"/libnemoh.dylib && echo ’Success’ ) || echo ’Error:Nemoh library not found’.
+	(test -e "$FORTRAN_BUILD/libnemoh.dylib" && echo ’Success’ ) || echo ’Error:Nemoh library not found’.
 	
 	# echo "make sure the nglib-mesh directory is executable"
 	# chmod +x ${ROOT}/openwarp/bundled/meshgenerator/build/nglib-mesh
@@ -211,12 +211,9 @@ elif [ "$OSTYPE"="Darwin" ];then
 	
 	chmod 777 ${ROOT}/openwarpgui/nemoh/solver_fortran.so
 	# install_name_tool -change $Current $New
-	install_name_tool -change "libnemoh.dylib" "/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/OpenWARP/source/NemohImproved/FortranBuild/libnemoh.dylib" ${ROOT}/openwarpgui/nemoh/solver_fortran.so
+	install_name_tool -change "libnemoh.dylib" "$FORTRAN_BUILD/libnemoh.dylib" ${ROOT}/openwarpgui/nemoh/solver_fortran.so
 	
 	echo "OpenWarp Installationg Succesfully Completed"	
-	rm *.mod
 else
  	echo "This OS type is not supported!  "
 fi
-
-
