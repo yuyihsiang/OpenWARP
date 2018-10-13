@@ -1,0 +1,227 @@
+The system is: Darwin - 16.7.0 - x86_64
+Compiling the Fortran compiler identification source file "CMakeFortranCompilerId.F" succeeded.
+Compiler: /usr/local/bin/gfortran 
+Build flags: 
+Id flags: -v 
+
+The output was:
+0
+Driving: /usr/local/bin/gfortran -v CMakeFortranCompilerId.F -mmacosx-version-min=10.12.0 -asm_macosx_version_min=10.12 -l gfortran -shared-libgcc
+Using built-in specs.
+COLLECT_GCC=/usr/local/bin/gfortran
+COLLECT_LTO_WRAPPER=/usr/local/Cellar/gcc/8.2.0/libexec/gcc/x86_64-apple-darwin16.7.0/8.2.0/lto-wrapper
+Target: x86_64-apple-darwin16.7.0
+Configured with: ../configure --build=x86_64-apple-darwin16.7.0 --prefix=/usr/local/Cellar/gcc/8.2.0 --libdir=/usr/local/Cellar/gcc/8.2.0/lib/gcc/8 --enable-languages=c,c++,objc,obj-c++,fortran --program-suffix=-8 --with-gmp=/usr/local/opt/gmp --with-mpfr=/usr/local/opt/mpfr --with-mpc=/usr/local/opt/libmpc --with-isl=/usr/local/opt/isl --with-system-zlib --enable-checking=release --with-pkgversion='Homebrew GCC 8.2.0' --with-bugurl=https://github.com/Homebrew/homebrew-core/issues --disable-nls
+Thread model: posix
+gcc version 8.2.0 (Homebrew GCC 8.2.0) 
+COLLECT_GCC_OPTIONS='-v' '-mmacosx-version-min=10.12.0' '-asm_macosx_version_min=10.12' '-shared-libgcc' '-mtune=core2'
+ /usr/local/Cellar/gcc/8.2.0/libexec/gcc/x86_64-apple-darwin16.7.0/8.2.0/f951 CMakeFortranCompilerId.F -ffixed-form -cpp=/var/folders/v4/zszycgd11cd28mrgx13mncxm0000gr/T//ccm0bIkP.f90 -quiet -v -D__DYNAMIC__ CMakeFortranCompilerId.F -fPIC -quiet -dumpbase CMakeFortranCompilerId.F -mmacosx-version-min=10.12.0 -mtune=core2 -auxbase CMakeFortranCompilerId -version -fintrinsic-modules-path /usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0/finclude -o /var/folders/v4/zszycgd11cd28mrgx13mncxm0000gr/T//ccoCNJCY.s
+GNU Fortran (Homebrew GCC 8.2.0) version 8.2.0 (x86_64-apple-darwin16.7.0)
+	compiled by GNU C version 8.2.0, GMP version 6.1.2, MPFR version 4.0.1, MPC version 1.1.0, isl version isl-0.20-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0/../../../../../../x86_64-apple-darwin16.7.0/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0/finclude
+ /usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0/include
+ /usr/local/include
+ /usr/local/Cellar/gcc/8.2.0/include
+ /usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0/include-fixed
+ /usr/include
+End of search list.
+GNU Fortran2008 (Homebrew GCC 8.2.0) version 8.2.0 (x86_64-apple-darwin16.7.0)
+	compiled by GNU C version 8.2.0, GMP version 6.1.2, MPFR version 4.0.1, MPC version 1.1.0, isl version isl-0.20-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+COLLECT_GCC_OPTIONS='-v' '-mmacosx-version-min=10.12.0'  '-shared-libgcc' '-mtune=core2'
+ as -arch x86_64 -v -force_cpusubtype_ALL -mmacosx-version-min=10.12 -o /var/folders/v4/zszycgd11cd28mrgx13mncxm0000gr/T//ccpaL7NJ.o /var/folders/v4/zszycgd11cd28mrgx13mncxm0000gr/T//ccoCNJCY.s
+Apple LLVM version 9.0.0 (clang-900.0.39.2)
+Target: x86_64-apple-darwin16.7.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang" -cc1as -triple x86_64-apple-macosx10.12.0 -filetype obj -main-file-name ccoCNJCY.s -target-cpu penryn -fdebug-compilation-dir /Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/OpenWARP/source/NemohImproved/FortranBuild_OSX/CMakeFiles/3.12.2/CompilerIdFortran -dwarf-debug-producer Apple LLVM version 9.0.0 (clang-900.0.39.2) -dwarf-version=4 -mrelocation-model pic -o /var/folders/v4/zszycgd11cd28mrgx13mncxm0000gr/T//ccpaL7NJ.o /var/folders/v4/zszycgd11cd28mrgx13mncxm0000gr/T//ccoCNJCY.s
+Reading specs from /usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0/../../../libgfortran.spec
+rename spec lib to liborig
+COLLECT_GCC_OPTIONS='-v' '-mmacosx-version-min=10.12.0'  '-shared-libgcc' '-mtune=core2'
+COMPILER_PATH=/usr/local/Cellar/gcc/8.2.0/libexec/gcc/x86_64-apple-darwin16.7.0/8.2.0/:/usr/local/Cellar/gcc/8.2.0/libexec/gcc/x86_64-apple-darwin16.7.0/8.2.0/:/usr/local/Cellar/gcc/8.2.0/libexec/gcc/x86_64-apple-darwin16.7.0/:/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0/:/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/
+LIBRARY_PATH=/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0/:/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0/../../../
+COLLECT_GCC_OPTIONS='-v' '-mmacosx-version-min=10.12.0'  '-shared-libgcc' '-mtune=core2'
+ /usr/local/Cellar/gcc/8.2.0/libexec/gcc/x86_64-apple-darwin16.7.0/8.2.0/collect2 -dynamic -arch x86_64 -macosx_version_min 10.12.0 -weak_reference_mismatches non-weak -o a.out -L/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0 -L/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0/../../.. /var/folders/v4/zszycgd11cd28mrgx13mncxm0000gr/T//ccpaL7NJ.o -lgfortran -no_compact_unwind -lSystem -lgcc_ext.10.5 -lgcc -lquadmath -lm -lgcc_ext.10.5 -lgcc -lSystem -v
+collect2 version 8.2.0
+/usr/bin/ld -dynamic -arch x86_64 -macosx_version_min 10.12.0 -weak_reference_mismatches non-weak -o a.out -L/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0 -L/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0/../../.. /var/folders/v4/zszycgd11cd28mrgx13mncxm0000gr/T//ccpaL7NJ.o -lgfortran -no_compact_unwind -lSystem -lgcc_ext.10.5 -lgcc -lquadmath -lm -lgcc_ext.10.5 -lgcc -lSystem -v
+@(#)PROGRAM:ld  PROJECT:ld64-305
+configured to support archs: armv6 armv7 armv7s arm64 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em (tvOS)
+Library search paths:
+	/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0
+	/usr/local/Cellar/gcc/8.2.0/lib/gcc/8
+	/usr/lib
+	/usr/local/lib
+Framework search paths:
+	/Library/Frameworks/
+	/System/Library/Frameworks/
+ /usr/bin/nm -n /var/folders/v4/zszycgd11cd28mrgx13mncxm0000gr/T//ccpaL7NJ.o
+
+
+Compilation of the Fortran compiler identification source "CMakeFortranCompilerId.F" produced "a.out"
+
+The Fortran compiler identification is GNU, found in "/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/OpenWARP/source/NemohImproved/FortranBuild_OSX/CMakeFiles/3.12.2/CompilerIdFortran/a.out"
+
+Determining if the Fortran compiler works passed with the following output:
+Change Dir: /Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/OpenWARP/source/NemohImproved/FortranBuild_OSX/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_44be9/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_44be9.dir/build.make CMakeFiles/cmTC_44be9.dir/build
+Building Fortran object CMakeFiles/cmTC_44be9.dir/testFortranCompiler.f.o
+/usr/local/bin/gfortran    -c /Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/OpenWARP/source/NemohImproved/FortranBuild_OSX/CMakeFiles/CMakeTmp/testFortranCompiler.f -o CMakeFiles/cmTC_44be9.dir/testFortranCompiler.f.o
+Linking Fortran executable cmTC_44be9
+/usr/local/Cellar/cmake/3.12.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_44be9.dir/link.txt --verbose=1
+/usr/local/bin/gfortran      CMakeFiles/cmTC_44be9.dir/testFortranCompiler.f.o  -o cmTC_44be9 
+
+
+Detecting Fortran compiler ABI info compiled with the following output:
+Change Dir: /Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/OpenWARP/source/NemohImproved/FortranBuild_OSX/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_73e02/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_73e02.dir/build.make CMakeFiles/cmTC_73e02.dir/build
+Building Fortran object CMakeFiles/cmTC_73e02.dir/CMakeFortranCompilerABI.F.o
+/usr/local/bin/gfortran    -c /usr/local/Cellar/cmake/3.12.2/share/cmake/Modules/CMakeFortranCompilerABI.F -o CMakeFiles/cmTC_73e02.dir/CMakeFortranCompilerABI.F.o
+Linking Fortran executable cmTC_73e02
+/usr/local/Cellar/cmake/3.12.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_73e02.dir/link.txt --verbose=1
+/usr/local/bin/gfortran   -v -Wl,-v   CMakeFiles/cmTC_73e02.dir/CMakeFortranCompilerABI.F.o  -o cmTC_73e02 
+Driving: /usr/local/bin/gfortran -v -Wl,-v CMakeFiles/cmTC_73e02.dir/CMakeFortranCompilerABI.F.o -o cmTC_73e02 -mmacosx-version-min=10.12.0 -asm_macosx_version_min=10.12 -l gfortran -shared-libgcc
+Using built-in specs.
+COLLECT_GCC=/usr/local/bin/gfortran
+COLLECT_LTO_WRAPPER=/usr/local/Cellar/gcc/8.2.0/libexec/gcc/x86_64-apple-darwin16.7.0/8.2.0/lto-wrapper
+Target: x86_64-apple-darwin16.7.0
+Configured with: ../configure --build=x86_64-apple-darwin16.7.0 --prefix=/usr/local/Cellar/gcc/8.2.0 --libdir=/usr/local/Cellar/gcc/8.2.0/lib/gcc/8 --enable-languages=c,c++,objc,obj-c++,fortran --program-suffix=-8 --with-gmp=/usr/local/opt/gmp --with-mpfr=/usr/local/opt/mpfr --with-mpc=/usr/local/opt/libmpc --with-isl=/usr/local/opt/isl --with-system-zlib --enable-checking=release --with-pkgversion='Homebrew GCC 8.2.0' --with-bugurl=https://github.com/Homebrew/homebrew-core/issues --disable-nls
+Thread model: posix
+gcc version 8.2.0 (Homebrew GCC 8.2.0) 
+Reading specs from /usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0/../../../libgfortran.spec
+rename spec lib to liborig
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_73e02' '-mmacosx-version-min=10.12.0' '-asm_macosx_version_min=10.12' '-shared-libgcc' '-mtune=core2'
+COMPILER_PATH=/usr/local/Cellar/gcc/8.2.0/libexec/gcc/x86_64-apple-darwin16.7.0/8.2.0/:/usr/local/Cellar/gcc/8.2.0/libexec/gcc/x86_64-apple-darwin16.7.0/8.2.0/:/usr/local/Cellar/gcc/8.2.0/libexec/gcc/x86_64-apple-darwin16.7.0/:/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0/:/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/
+LIBRARY_PATH=/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0/:/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0/../../../
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_73e02' '-mmacosx-version-min=10.12.0' '-asm_macosx_version_min=10.12' '-shared-libgcc' '-mtune=core2'
+ /usr/local/Cellar/gcc/8.2.0/libexec/gcc/x86_64-apple-darwin16.7.0/8.2.0/collect2 -dynamic -arch x86_64 -macosx_version_min 10.12.0 -weak_reference_mismatches non-weak -o cmTC_73e02 -L/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0 -L/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0/../../.. -v CMakeFiles/cmTC_73e02.dir/CMakeFortranCompilerABI.F.o -lgfortran -no_compact_unwind -lSystem -lgcc_ext.10.5 -lgcc -lquadmath -lm -lgcc_ext.10.5 -lgcc -lSystem -v
+collect2 version 8.2.0
+/usr/bin/ld -dynamic -arch x86_64 -macosx_version_min 10.12.0 -weak_reference_mismatches non-weak -o cmTC_73e02 -L/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0 -L/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0/../../.. -v CMakeFiles/cmTC_73e02.dir/CMakeFortranCompilerABI.F.o -lgfortran -no_compact_unwind -lSystem -lgcc_ext.10.5 -lgcc -lquadmath -lm -lgcc_ext.10.5 -lgcc -lSystem -v
+@(#)PROGRAM:ld  PROJECT:ld64-305
+configured to support archs: armv6 armv7 armv7s arm64 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em (tvOS)
+@(#)PROGRAM:ld  PROJECT:ld64-305
+configured to support archs: armv6 armv7 armv7s arm64 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em (tvOS)
+Library search paths:
+	/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0
+	/usr/local/Cellar/gcc/8.2.0/lib/gcc/8
+	/usr/lib
+	/usr/local/lib
+Framework search paths:
+	/Library/Frameworks/
+	/System/Library/Frameworks/
+ /usr/bin/nm -n CMakeFiles/cmTC_73e02.dir/CMakeFortranCompilerABI.F.o
+
+
+Parsed Fortran implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/OpenWARP/source/NemohImproved/FortranBuild_OSX/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_73e02/fast"]
+  ignore line: [/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_73e02.dir/build.make CMakeFiles/cmTC_73e02.dir/build]
+  ignore line: [Building Fortran object CMakeFiles/cmTC_73e02.dir/CMakeFortranCompilerABI.F.o]
+  ignore line: [/usr/local/bin/gfortran    -c /usr/local/Cellar/cmake/3.12.2/share/cmake/Modules/CMakeFortranCompilerABI.F -o CMakeFiles/cmTC_73e02.dir/CMakeFortranCompilerABI.F.o]
+  ignore line: [Linking Fortran executable cmTC_73e02]
+  ignore line: [/usr/local/Cellar/cmake/3.12.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_73e02.dir/link.txt --verbose=1]
+  ignore line: [/usr/local/bin/gfortran   -v -Wl,-v   CMakeFiles/cmTC_73e02.dir/CMakeFortranCompilerABI.F.o  -o cmTC_73e02 ]
+  ignore line: [Driving: /usr/local/bin/gfortran -v -Wl,-v CMakeFiles/cmTC_73e02.dir/CMakeFortranCompilerABI.F.o -o cmTC_73e02 -mmacosx-version-min=10.12.0 -asm_macosx_version_min=10.12 -l gfortran -shared-libgcc]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/local/bin/gfortran]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/local/Cellar/gcc/8.2.0/libexec/gcc/x86_64-apple-darwin16.7.0/8.2.0/lto-wrapper]
+  ignore line: [Target: x86_64-apple-darwin16.7.0]
+  ignore line: [Configured with: ../configure --build=x86_64-apple-darwin16.7.0 --prefix=/usr/local/Cellar/gcc/8.2.0 --libdir=/usr/local/Cellar/gcc/8.2.0/lib/gcc/8 --enable-languages=c,c++,objc,obj-c++,fortran --program-suffix=-8 --with-gmp=/usr/local/opt/gmp --with-mpfr=/usr/local/opt/mpfr --with-mpc=/usr/local/opt/libmpc --with-isl=/usr/local/opt/isl --with-system-zlib --enable-checking=release --with-pkgversion='Homebrew GCC 8.2.0' --with-bugurl=https://github.com/Homebrew/homebrew-core/issues --disable-nls]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 8.2.0 (Homebrew GCC 8.2.0) ]
+  ignore line: [Reading specs from /usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0/../../../libgfortran.spec]
+  ignore line: [rename spec lib to liborig]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_73e02' '-mmacosx-version-min=10.12.0' '-asm_macosx_version_min=10.12' '-shared-libgcc' '-mtune=core2']
+  ignore line: [COMPILER_PATH=/usr/local/Cellar/gcc/8.2.0/libexec/gcc/x86_64-apple-darwin16.7.0/8.2.0/:/usr/local/Cellar/gcc/8.2.0/libexec/gcc/x86_64-apple-darwin16.7.0/8.2.0/:/usr/local/Cellar/gcc/8.2.0/libexec/gcc/x86_64-apple-darwin16.7.0/:/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0/:/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/]
+  ignore line: [LIBRARY_PATH=/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0/:/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0/../../../]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_73e02' '-mmacosx-version-min=10.12.0' '-asm_macosx_version_min=10.12' '-shared-libgcc' '-mtune=core2']
+  link line: [ /usr/local/Cellar/gcc/8.2.0/libexec/gcc/x86_64-apple-darwin16.7.0/8.2.0/collect2 -dynamic -arch x86_64 -macosx_version_min 10.12.0 -weak_reference_mismatches non-weak -o cmTC_73e02 -L/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0 -L/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0/../../.. -v CMakeFiles/cmTC_73e02.dir/CMakeFortranCompilerABI.F.o -lgfortran -no_compact_unwind -lSystem -lgcc_ext.10.5 -lgcc -lquadmath -lm -lgcc_ext.10.5 -lgcc -lSystem -v]
+    arg [/usr/local/Cellar/gcc/8.2.0/libexec/gcc/x86_64-apple-darwin16.7.0/8.2.0/collect2] ==> ignore
+    arg [-dynamic] ==> ignore
+    arg [-arch] ==> ignore
+    arg [x86_64] ==> ignore
+    arg [-macosx_version_min] ==> ignore
+    arg [10.12.0] ==> ignore
+    arg [-weak_reference_mismatches] ==> ignore
+    arg [non-weak] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_73e02] ==> ignore
+    arg [-L/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0] ==> dir [/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0]
+    arg [-L/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0/../../..] ==> dir [/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0/../../..]
+    arg [-v] ==> ignore
+    arg [CMakeFiles/cmTC_73e02.dir/CMakeFortranCompilerABI.F.o] ==> ignore
+    arg [-lgfortran] ==> lib [gfortran]
+    arg [-no_compact_unwind] ==> ignore
+    arg [-lSystem] ==> lib [System]
+    arg [-lgcc_ext.10.5] ==> lib [gcc_ext.10.5]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lquadmath] ==> lib [quadmath]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_ext.10.5] ==> lib [gcc_ext.10.5]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lSystem] ==> lib [System]
+    arg [-v] ==> ignore
+  Library search paths: [;/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0;/usr/local/Cellar/gcc/8.2.0/lib/gcc/8;/usr/lib;/usr/local/lib]
+  Framework search paths: [;/Library/Frameworks/;/System/Library/Frameworks/]
+  remove lib [System]
+  remove lib [System]
+  collapse library dir [/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0] ==> [/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0]
+  collapse library dir [/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0/../../..] ==> [/usr/local/Cellar/gcc/8.2.0/lib/gcc/8]
+  collapse library dir [/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0] ==> [/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0]
+  collapse library dir [/usr/local/Cellar/gcc/8.2.0/lib/gcc/8] ==> [/usr/local/Cellar/gcc/8.2.0/lib/gcc/8]
+  collapse library dir [/usr/lib] ==> [/usr/lib]
+  collapse library dir [/usr/local/lib] ==> [/usr/local/lib]
+  collapse framework dir [/Library/Frameworks/] ==> [/Library/Frameworks]
+  collapse framework dir [/System/Library/Frameworks/] ==> [/System/Library/Frameworks]
+  implicit libs: [gfortran;gcc_ext.10.5;gcc;quadmath;m;gcc_ext.10.5;gcc]
+  implicit dirs: [/usr/local/Cellar/gcc/8.2.0/lib/gcc/8/gcc/x86_64-apple-darwin16.7.0/8.2.0;/usr/local/Cellar/gcc/8.2.0/lib/gcc/8;/usr/lib;/usr/local/lib]
+  implicit fwks: [/Library/Frameworks;/System/Library/Frameworks]
+
+
+Determining if the Fortran compiler supports Fortran 90 passed with the following output:
+Change Dir: /Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/OpenWARP/source/NemohImproved/FortranBuild_OSX/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_0e828/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_0e828.dir/build.make CMakeFiles/cmTC_0e828.dir/build
+Building Fortran object CMakeFiles/cmTC_0e828.dir/testFortranCompilerF90.f90.o
+/usr/local/bin/gfortran    -c /Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/OpenWARP/source/NemohImproved/FortranBuild_OSX/CMakeFiles/CMakeTmp/testFortranCompilerF90.f90 -o CMakeFiles/cmTC_0e828.dir/testFortranCompilerF90.f90.o
+Linking Fortran executable cmTC_0e828
+/usr/local/Cellar/cmake/3.12.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0e828.dir/link.txt --verbose=1
+/usr/local/bin/gfortran      CMakeFiles/cmTC_0e828.dir/testFortranCompilerF90.f90.o  -o cmTC_0e828 
+
+
+Determining if the Fortran dgemm exists passed with the following output:
+Change Dir: /Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/OpenWARP/source/NemohImproved/FortranBuild_OSX/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c7027/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_c7027.dir/build.make CMakeFiles/cmTC_c7027.dir/build
+Building Fortran object CMakeFiles/cmTC_c7027.dir/testFortranCompiler.f.o
+/usr/local/bin/gfortran    -c /Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/OpenWARP/source/NemohImproved/FortranBuild_OSX/CMakeFiles/CMakeTmp/testFortranCompiler.f -o CMakeFiles/cmTC_c7027.dir/testFortranCompiler.f.o
+Linking Fortran executable cmTC_c7027
+/usr/local/Cellar/cmake/3.12.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c7027.dir/link.txt --verbose=1
+/usr/local/bin/gfortran      CMakeFiles/cmTC_c7027.dir/testFortranCompiler.f.o  -o cmTC_c7027 -framework Accelerate 
+
+
+Determining if the Fortran cheev exists passed with the following output:
+Change Dir: /Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/OpenWARP/source/NemohImproved/FortranBuild_OSX/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e25cd/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_e25cd.dir/build.make CMakeFiles/cmTC_e25cd.dir/build
+Building Fortran object CMakeFiles/cmTC_e25cd.dir/testFortranCompiler.f.o
+/usr/local/bin/gfortran    -c /Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/OpenWARP/source/NemohImproved/FortranBuild_OSX/CMakeFiles/CMakeTmp/testFortranCompiler.f -o CMakeFiles/cmTC_e25cd.dir/testFortranCompiler.f.o
+Linking Fortran executable cmTC_e25cd
+/usr/local/Cellar/cmake/3.12.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e25cd.dir/link.txt --verbose=1
+/usr/local/bin/gfortran      CMakeFiles/cmTC_e25cd.dir/testFortranCompiler.f.o  -o cmTC_e25cd -framework Accelerate -framework Accelerate 
+
+

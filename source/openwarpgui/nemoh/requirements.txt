@@ -1,0 +1,6 @@
+numpy
+cython
+h5py
+capturer
+logutils
+scipy
