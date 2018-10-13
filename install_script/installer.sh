@@ -54,8 +54,13 @@ if [ "$OSTYPE" = "Linux" ];then
 	# echo "Installing vtk"
 	# sudo apt-get --yes --force-yes install libvtk5-dev
 
+    # echo "Installing Anaconda2.7 Python"
+    curl -O https://repo.continuum.io/archive/Anaconda3-5.3.0-Linux-x86_64.sh
+    ./Anaconda3-5.3.0-Linux-x86_64.sh
+    rm Anaconda3-5.3.0-Linux-x86_64.sh
+
 	# echo "Installing python dependencies"
-	sudo apt-get --yes --force-yes install python-numpy python-scipy python-matplotlib python-h5py python-cherrypy3 python-pip ipython ipython-notebook python-pandas python-sympy python-nose python-progressbar python-vtk
+	sudo apt-get --yes --force-yes install python-numpy python-scipy python-matplotlib python-pip ipython ipython-notebook python-pandas python-sympy python-nose python-progressbar python-vtk
 
 	# echo "Installing curl"
 	# sudo apt-get --yes --force-yes install curl
