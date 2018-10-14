@@ -4,5 +4,5 @@
 *.pyc
 source/openwarpgui/bundled/.DS_Store
 source/openwarpgui/bundled/paraview_linux/.DS_Store
-*.o
 source/openwarpgui/nemoh/.DS_Store
+source/openwarpgui/nemoh/build/temp.macosx-10.6-x86_64-2.7/solver_fortran.o
