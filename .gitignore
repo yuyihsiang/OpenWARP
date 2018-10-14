@@ -5,3 +5,4 @@
 source/openwarpgui/bundled/.DS_Store
 source/openwarpgui/bundled/paraview_linux/.DS_Store
 *.o
+source/openwarpgui/nemoh/.DS_Store
