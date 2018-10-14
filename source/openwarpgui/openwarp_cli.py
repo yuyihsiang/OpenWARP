@@ -111,9 +111,11 @@ def get_floating_body(fb, simulation_dir):
     :return the updated floating body
     """
 
-    mesh_file = os.path.realpath(jp.search(struct.BODY_MESH_FILE, fb))
+#    mesh_file = os.path.realpath(jp.search(struct.BODY_MESH_FILE, fb))
+    mesh_file = os.path.realpath(os.path.join(simulation_dir,jp.search(struct.BODY_MESH_FILE, fb)))
+    print("Read mesh from:")
+    print(mesh_file)
 
-    
     if not MeshFormat.is_dat_file(mesh_file):
         meshing_param = {
             "maxh": jp.search(struct.BODY_MESHING_MAXH, fb),
@@ -131,7 +133,6 @@ def get_floating_body(fb, simulation_dir):
         meshing_param = convert_dict_values(meshing_param)
         services.generate_mesh(meshing_dir, services.MeshingParameters(**meshing_param))
         mesh_file = os.path.join(meshing_dir, meshing_param['outfile'] + '-quad.dat')
-        
 
     with open(mesh_file, 'r') as f:
         n_points, n_panels = utility.determine_points_panels(f)
@@ -155,8 +156,8 @@ def get_floating_body(fb, simulation_dir):
         'mesh_file': mesh_file,
         'points': n_points,
         'panels': n_panels
-    }
 
+    }
     body_param = convert_dict_values(body_param)
     return body_param
 
@@ -354,7 +355,9 @@ def run(user_config, queue):
         logger.info('Running simulation ' + str(simulation) + ' with parameter ' + json.dumps(simulation_parameter) + '\n')
 
         # Now we have the correct parameter to run in simulation_parameter
-        simulation_dir = os.path.realpath(jp.search(struct.SIMULATION_DIR, simulation_parameter))
+#        simulation_dir = os.path.realpath(jp.search(struct.SIMULATION_DIR, simulation_parameter))
+        simulation_dir = os.path.realpath(os.path.dirname(path))
+
         # Create the simulation directory if not exists
         utility.mkdir_p(simulation_dir)
         run_phases(simulation_parameter, simulation_dir, phase, queue)

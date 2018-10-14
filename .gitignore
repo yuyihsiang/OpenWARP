@@ -1,3 +1,10 @@
 **/FortranBuild_OSX/
 .DS_Store
 *.so
+*.pyc
+source/openwarpgui/bundled/.DS_Store
+source/openwarpgui/bundled/.DS_Store
+source/openwarpgui/bundled/.DS_Store
+source/openwarpgui/bundled/paraview_linux/.DS_Store
+*.o
+*.o
