@@ -30,6 +30,7 @@ if [ "$OSTYPE" = "Linux" ];then
     FORTRAN_BUILD="${ROOT}/NemohImproved/FortranBuild_Linux"
 
     echo "Building fortran to" "$FORTRAN_BUILD"
+    mkdir -p "$FORTRAN_BUILD"  
     rm -rf "$FORTRAN_BUILD"/*  
     cd "$FORTRAN_BUILD"
     if [ -n "$1" ] && [ "$1" == "ifort" ]; then
@@ -63,6 +64,7 @@ elif [ "$OSTYPE"="Darwin" ];then
 	mv /usr/local/lib/gcc/4.9/libquadmath.dylib /usr/local/lib/gcc/4.9/disable_libquadmath.dylib
 	
     echo "Building fortran to" "$FORTRAN_BUILD"
+    mkdir -p "$FORTRAN_BUILD"  
     rm -rf "$FORTRAN_BUILD"/*  
     cd "$FORTRAN_BUILD"
 	cmake -DCMAKE_Fortran_COMPILER="gfortran" "$NEMOH_FORTRAN"
