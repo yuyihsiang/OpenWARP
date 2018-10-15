@@ -34,7 +34,7 @@ if [ "$OSTYPE" = "Linux" ];then
     rm -rf "$FORTRAN_BUILD"/*  
     cd "$FORTRAN_BUILD"
     if [ -n "$1" ] && [ "$1" == "ifort" ]; then
-        cho "Using Intel Fortran" 
+        echo "Using Intel Fortran" 
         cmake -DCMAKE_Fortran_COMPILER="ifort" "$NEMOH_FORTRAN"        
     else
         echo "Using gfortran" 
