@@ -15,7 +15,7 @@
 
   "simulations": {
     "Cylinder": {
-      "simulation_dir": "automated_test/Test10/Cylinder",
+      "simulation_dir": "",
       "environment": {
         "fluid_mass_volumic": 1000.0,
         "gravity": 9.81,
@@ -27,7 +27,7 @@
       },
       "floating_bodies": {
         "Cylinder.dat": {
-          "mesh_file": "automated_test/Test10/Cylinder/Cylinder.dat",
+          "mesh_file": "Cylinder/Cylinder.dat",
           "surge": [
             0.0,
             0.0,

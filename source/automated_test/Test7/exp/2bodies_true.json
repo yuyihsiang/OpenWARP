@@ -15,7 +15,7 @@
 
   "simulations": {
     "2Bodies": {
-      "simulation_dir": "automated_test/Test7/exp/2Bodies_true",
+      "simulation_dir": "",
       "environment": {
         "fluid_mass_volumic": 1000.0,
         "gravity": 9.81,
@@ -28,7 +28,7 @@
       "floating_bodies": {
 
         "Cube.dat": {
-          "mesh_file": "automated_test/Test7/exp/2Bodies_true/Cube.dat",
+          "mesh_file": "2Bodies_true/Cube.dat",
 	     "surge": [
             0.0,
             0.0,
@@ -100,7 +100,7 @@
         },
 
         "Rotated_cube.dat":{
-          "mesh_file": "automated_test/Test7/exp/2Bodies_true/Rotated_cube.dat",
+          "mesh_file": "2Bodies_true/Rotated_cube.dat",
 	     "surge": [
             0.0,
             0.0,

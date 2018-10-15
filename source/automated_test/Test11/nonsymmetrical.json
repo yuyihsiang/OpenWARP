@@ -15,7 +15,7 @@
 
   "simulations": {
     "Nonsymmetrical": {
-      "simulation_dir": "automated_test/Test11/NonSymmetrical",
+      "simulation_dir": "",
       "environment": {
         "fluid_mass_volumic": 1000.0,
         "gravity": 9.81,
@@ -27,7 +27,7 @@
       },
       "floating_bodies": {
         "NonSymmetrical.dat": {
-          "mesh_file": "automated_test/Test11/NonSymmetrical/NonSymmetrical.dat",
+          "mesh_file": "NonSymmetrical/NonSymmetrical.dat",
           "surge": [
             0.0,
             0.0,
