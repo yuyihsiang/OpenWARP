@@ -36,3 +36,5 @@ source/automated_test/testruns/openwarp/test13.h5
 source/automated_test/Test7/exp/postprocessing_log.txt
 source/automated_test/Test8/exp/db.hdf5
 source/automated_test/Test8/exp/simulation_log.txt
+source/automated_test/Test8/.DS_Store
+source/automated_test/Test8/exp/postprocessing_log.txt
