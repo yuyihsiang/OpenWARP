@@ -125,7 +125,7 @@ MODULE NEMOH
     REAL(C_FLOAT) :: ct_TOL_GMRES
 
     INTEGER(C_INT) :: Npoints,Npanels,Nbodies, Nproblems, NBCPanels, Nintegration, NFSPoints, NFSPanels
-     INTEGER(C_INT) :: n_beta, n_radiation
+    INTEGER(C_INT) :: n_beta, n_radiation
     INTEGER(C_INT) :: Ntheta, n_potentials, n_tabulatedx, n_tabulatedz, n_points_simpson
 
     INTEGER(C_INT) :: mesh_Isym, higher_panel_method, b_spline_order, num_panel_higher_order
@@ -511,6 +511,7 @@ MODULE NEMOH
     !WRITE(*,*) ' '
     if (logp(LOG_INFO)) then
         write(logu,*) trim(logl(LOG_INFO)), " -> Solving BVPs and calculate forces"
+!        write(*,*) n_radiation, n_beta
     endif
 
     nCase = BodyConditions%Nproblems/(WhereToSave-1)
@@ -527,7 +528,8 @@ MODULE NEMOH
         !       Solve BVP
 
         j = (j_fq-1)*nCase+j_case
-        !write(*,*) j, ProblemSavedAt(j), j_fq, j_case, TD, iMaxThreads
+!        write(*,*) j, ProblemSavedAt(j), j_fq, j_case, TD, iMaxThreads
+!        write(*,*) CHECK_IS_WAVE(J, n_beta, n_radiation), GET_RAD_IDX(J, n_beta, n_radiation)
 
             tmp_idx(j) = GET_RAD_IDX(J, n_beta, n_radiation)
             tmp_par(j) = 0
@@ -550,14 +552,14 @@ MODULE NEMOH
             !endif
 
         END DO
-                      call cpu_time(fi)
+        call cpu_time(fi)
 
-            !WRITE(0,'(A,I5,A,I5,A)', advance='YES') ' Problem ',j,' / ',BodyConditions%Nproblems,' ... Done !'
-            if (logp(LOG_INFO)) then
-                write(logu, '(A, A,F6.2,A)', advance='YES') trim(logl(LOG_INFO)), ' Wave Frequency = ', &
-                & BodyConditions%Omega(j),' rad/sec ... Done !'
-!                write(*,*) j_fq, TD, iMaxThreads, fi-st
-            endif
+        !WRITE(0,'(A,I5,A,I5,A)', advance='YES') ' Problem ',j,' / ',BodyConditions%Nproblems,' ... Done !'
+        if (logp(LOG_INFO)) then
+            write(logu, '(A, A,F6.2,A)', advance='YES') trim(logl(LOG_INFO)), ' Wave Frequency = ', &
+            & BodyConditions%Omega(j),' rad/sec ... Done !'
+!           write(*,*) j_fq, TD, iMaxThreads, fi-st
+        endif
 
     END DO
     !$OMP END PARALLEL DO

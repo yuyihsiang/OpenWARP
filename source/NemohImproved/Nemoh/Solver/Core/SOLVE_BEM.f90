@@ -193,7 +193,7 @@ CONTAINS
         END IF
 
         !       Select calculation in function of water depth
-        IF ((Depth.EQ.0.).OR.(kwave*Depth.GE.20.)) THEN
+        IF ((Depth.EQ.0.).OR.(kwave*Depth.GE.10. .AND. is_wave.EQ.0)) THEN
             !           Calculate wave number
             kwave=w*w/g
             AMH=kwave*Depth
