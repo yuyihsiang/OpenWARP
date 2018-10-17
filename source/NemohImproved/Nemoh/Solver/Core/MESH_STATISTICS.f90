@@ -110,7 +110,6 @@ CONTAINS
 
         WRITE(*,*) ' -> Calculate hydrostatics '
         WRITE(*,*) ' '
-        write(*,*)  nFace
         Np=0
         Nf=nFace
         DO i=1,nFace
