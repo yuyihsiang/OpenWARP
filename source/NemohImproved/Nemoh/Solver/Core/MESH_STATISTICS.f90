@@ -122,7 +122,7 @@ CONTAINS
             Np=Np+4
         END DO
         !    Calcul et sauvegarde de la matrice de raideur hydrostatique
-        CALL HYDRO(X,Y,Z,FACETTE,NF,DEPLACEMENT,XF,YF,ZF,SF,KH,Xm,Ym,Zm,NPm,FACETTEm,NFm)
+        CALL HYDRO(X,Y,Z,FACETTE,NF,DEPLACEMENT,XF,YF,ZF,SF,KH,Xm,Ym,Zm,NPm,FACETTEm,NFm,ct_RHO,ct_G)
 
         !    Prise en compte de la symétrie
         IF (Nsym.EQ.1) THEN

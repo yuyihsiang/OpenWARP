@@ -35,7 +35,7 @@ MODULE HYDRO_NETTING
 IMPLICIT NONE
 CONTAINS
     SUBROUTINE HYDRO(X,Y,Z,FACETTES,NF,DEPLACEMENT,XF,YF,ZF,SF,KH,Xmouillee,Ymouillee,Zmouillee&
-        ,Npmouillee,Facettesmouillee,Nfmouillee)
+        ,Npmouillee,Facettesmouillee,Nfmouillee,RHO,G)
 
         IMPLICIT NONE
 
@@ -47,6 +47,7 @@ CONTAINS
         REAL :: DEPLACEMENT
         REAL ::XF,YF,ZF
         REAL :: SF
+        REAL :: RHO,G
         !    Maillage de la surface mouille
         INTEGER Npmouillee,Nfmouillee
         REAL,DIMENSION(*) :: Xmouillee,Ymouillee,Zmouillee
@@ -199,7 +200,7 @@ CONTAINS
                                 END DO
                                 Npmouillee=4+Npmouillee
                                 Nfmouillee=1+Nfmouillee
-                                CALL VOLELMT(P1,P2,P3,P4,VLF,PGF,SEF,KHE)
+                                CALL VOLELMT(P1,P2,P3,P4,VLF,PGF,SEF,KHE,RHO,G)
                                 DEPLACEMENT=DEPLACEMENT+VLF
                                 XF=XF+VLF*PGF(1)
                                 YF=YF+VLF*PGF(2)
@@ -254,7 +255,7 @@ CONTAINS
                                     END DO
                                     Npmouillee=4+Npmouillee
                                     Nfmouillee=1+Nfmouillee
-                                    CALL VOLELMT(P1,P2,P3,P4,VLF,PGF,SEF,KHE)
+                                    CALL VOLELMT(P1,P2,P3,P4,VLF,PGF,SEF,KHE,RHO,G)
                                     DEPLACEMENT=DEPLACEMENT+VLF
                                     XF=XF+VLF*PGF(1)
                                     YF=YF+VLF*PGF(2)
@@ -309,7 +310,7 @@ CONTAINS
                                         END DO
                                         Npmouillee=4+Npmouillee
                                         Nfmouillee=1+Nfmouillee
-                                        CALL VOLELMT(P1,P2,P3,P4,VLF,PGF,SEF,KHe)
+                                        CALL VOLELMT(P1,P2,P3,P4,VLF,PGF,SEF,KHe,RHO,G)
                                         DEPLACEMENT=DEPLACEMENT+VLF
                                         XF=XF+VLF*PGF(1)
                                         YF=YF+VLF*PGF(2)
@@ -364,7 +365,7 @@ CONTAINS
                                             END DO
                                             Npmouillee=4+Npmouillee
                                             Nfmouillee=1+Nfmouillee
-                                            CALL VOLELMT(P1,P2,P3,P4,VLF,PGF,SEF,KHe)
+                                            CALL VOLELMT(P1,P2,P3,P4,VLF,PGF,SEF,KHe,RHO,G)
                                             DEPLACEMENT=DEPLACEMENT+VLF
                                             XF=XF+VLF*PGF(1)
                                             YF=YF+VLF*PGF(2)
@@ -427,7 +428,7 @@ CONTAINS
                 END DO
                 Npmouillee=4+Npmouillee
                 Nfmouillee=1+Nfmouillee
-                CALL VOLELMT(P1,P2,P3,P4,VLF,PGF,SEF,KHe)
+                CALL VOLELMT(P1,P2,P3,P4,VLF,PGF,SEF,KHe,RHO,G)
                 IF (ITEC.EQ.1) THEN
                     WRITE(10,*) (P1(K),K=1,3)
                     WRITE(10,*) (P2(K),K=1,3)
@@ -458,7 +459,7 @@ CONTAINS
     !    CALCUL DU VOLUME COMPRIS ENTRE UNE FACETTE DU MAILLAGE
     !    ET LE PLAN Z=0
 
-    SUBROUTINE VOLELMT(P1,P2,P3,P4,VOLUME,PG,SF,KH)
+    SUBROUTINE VOLELMT(P1,P2,P3,P4,VOLUME,PG,SF,KH,RHO,G)
 
         IMPLICIT NONE
 
@@ -466,7 +467,7 @@ CONTAINS
         REAL,DIMENSION(3) :: PG,P0G,PG1,PG2,PG3,PG4,PG5,PG6
         REAL,DIMENSION(3) :: AB,AC,AD,U,V,W
         REAL,DIMENSION(6,6) :: KH
-        REAL VOLUME,V1,V2,V3,V4,V5,V6,SF
+        REAL VOLUME,V1,V2,V3,V4,V5,V6,SF,RHO,G
         INTEGER I
 
         DO I=1,2
@@ -568,12 +569,12 @@ CONTAINS
         !
 
         KH=0.
-        KH(3,3)=1025.*9.81*SF
-        KH(4,4)=1025.*9.81*SF*P0G(2)**2
-        KH(5,5)=1025.*9.81*SF*P0G(1)**2
-        KH(3,4)=1025.*9.81*SF*P0G(2)
-        KH(3,5)=-1025.*9.81*SF*P0G(1)
-        KH(4,5)=-1025.*9.81*SF*P0G(2)*P0G(1)
+        KH(3,3)=RHO*G*SF
+        KH(4,4)=RHO*G*SF*P0G(2)**2
+        KH(5,5)=RHO*G*SF*P0G(1)**2
+        KH(3,4)=RHO*G*SF*P0G(2)
+        KH(3,5)=-RHO*G*SF*P0G(1)
+        KH(4,5)=-RHO*G*SF*P0G(2)*P0G(1)
         KH(4,3)=KH(3,4)
         KH(5,3)=KH(3,5)
         KH(4,5)=KH(5,4)
