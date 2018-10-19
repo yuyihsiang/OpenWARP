@@ -62,6 +62,7 @@ import StringIO
 import tempfile
 import json
 
+
 __author__ = "yedtoss, TCSASSEMBLER"
 __copyright__ = "Copyright (C) 2014-2016 TopCoder Inc. All rights reserved."
 __version__ = "2.0"
@@ -258,8 +259,76 @@ def write_result(hdf5_data, data):
 
     dset = utility.require_dataset(hdf5_data, structure.H5_RESULTS_STIFNESS, data["stifness"].shape, dtype='f')
     utility.set_hdf5_attributes(dset, structure.H5_RESULTS_STIFNESS_ATTR)
-    dset[:, :, :] = data["stifness"]
+    dset[:, :, :] = data["stifness"]        
 
+    for i in range(len(dset[:, :, :])):
+        kh_file=os.path.dirname(sys.argv[-1]) + "/mesh/KH_" + str(i) + ".dat"
+        save_stifness(dset[i, :, :], kh_file)
+        hydroInfo_file=os.path.dirname(sys.argv[-1]) + "/mesh/Hydrostatics_" + str(i) + ".dat"
+        j = i*6+3
+        save_hydroinfo(data["rad_case"][j,5:8],data["center_buoyancy"][i,:],data["displacement"][i],data["waterplane_area"][i], hydroInfo_file)
+
+    utility.log_exit(logger, signature, [None])
+
+
+def save_stifness(result, filename):
+    """
+    Saves the radiation coefficient to a file in tec format
+    Args:
+        result: object, the hydrodynamic coefficients cases
+        filename: The path to the file where to save
+    """
+    signature = __name__ + '.save_stifness(result, filename)'
+    logger = logging.getLogger(__name__)
+    utility.log_entrance(logger, signature,
+                         {"result": str(result),
+                          'filename': str(filename)})
+
+    utility.mkdir_p(os.path.abspath(os.path.dirname(filename)))
+
+    with open(filename, 'w') as inp:
+         for i in range(len(result[:, :])):
+             for j in range(len(result[:, :])):
+                 if j == len(result[:, :])-1:                                
+                    inp.write(" % E\n" % result[i,j])
+                 else:
+                    inp.write(" % E " % result[i,j])
+              
+    utility.log_and_print(logger, utility.get_abs(filename) + ' contains the hydrostatic stifness.')
+    utility.log_exit(logger, signature, [None])
+
+
+def save_hydroinfo(cg,cb,disVol,Warea, filename):
+    """
+    Saves the radiation coefficient to a file in tec format
+    Args:
+        result: object, the hydrodynamic coefficients cases
+        filename: The path to the file where to save
+    """
+    signature = __name__ + '.save_hydroinfo(result, filename)'
+    logger = logging.getLogger(__name__)
+    utility.log_entrance(logger, signature,
+                         {"cg": str(cg),
+                          "cb": str(cb),
+                          "disVol": str(disVol),
+                          "Warea": str(Warea),
+                          'filename': str(filename)})
+
+    utility.mkdir_p(os.path.abspath(os.path.dirname(filename)))
+
+    with open(filename, 'w') as inp:
+#         print "XF = %(cb) 7.3f - XG = %(cg) 7.3f" % {"cb":cb(1), "cg":cb(1)}
+         inp.write("XF = %7.3f - XG =  %7.3f\n" % (cb[0],cg[0]))
+         inp.write("XF = %7.3f - XG =  %7.3f\n" % (cb[1],cg[1]))
+         inp.write("XF = %7.3f - XG =  %7.3f\n" % (cb[2],cg[2]))
+         inp.write("Displacement = %E\n" % disVol)
+         inp.write("Waterplane area = %E" % Warea)
+
+#             inp.write(str(result[i,:])
+#             tmpFmt = "%5.3f"*len(result[i,:])+"\n" 
+#             print(tmpFmt % result[i,:])
+              
+    utility.log_and_print(logger, utility.get_abs(filename) + ' contains the hydrostatic information.')
     utility.log_exit(logger, signature, [None])
 
 
@@ -383,6 +452,7 @@ def run(hdf5_data):
     data["drift_forces"] = np.zeros((n_problems, data["n_theta"], 2), order="F", dtype='f')
     data["yaw_moment"] = np.zeros((n_problems, data["n_theta"]), order="F", dtype='f')
     data["center_buoyancy"] = np.zeros((n_bodies, 3), order="F", dtype='f')
+    data["freedom_degree"] = np.zeros((6, 7), order="F", dtype='f')
     data["displacement"] = np.zeros((n_bodies), order="F", dtype='f')
     data["waterplane_area"] = np.zeros((n_bodies), order="F", dtype='f')
     data["stifness"] = np.zeros((n_bodies, 6, 6), order="F", dtype='f')
