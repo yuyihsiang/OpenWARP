@@ -26,7 +26,7 @@ from nemoh.structure import JSON_STRUCTURE
 from nemoh import settings
 import subprocess
 from openwarp import settings as openwarp_settings
-
+from collections import OrderedDict
 
 # script file
 SCRIPT = os.path.realpath(__file__)
@@ -219,7 +219,6 @@ def run_simulation(simulation_parameter, simulation_dir, queue):
 
     simulation_param = convert_dict_values(simulation_param)
     simulation_param['floating_bodies'] = generate_floating_bodies(simulation_parameter, simulation_dir)
-
     return services.simulate(simulation_dir, services.construct_simulation_parameters(simulation_param), queue)
 
 
@@ -302,25 +301,24 @@ def run(user_config, queue):
 
     # Get application based default configuration
     with open(DEFAULT_CONFIGURATION_FILE, 'rt') as f:
-        default_config = json.load(f)
+        default_config = json.load(f, object_pairs_hook=OrderedDict)
+
     # Merge default configuration with user configuration
-    config = merge_config(copy.deepcopy(default_config), copy.deepcopy(user_config))
+    config = merge_config(copy.deepcopy(user_config), copy.deepcopy(default_config))
     
     # Get all simulations
-    all_simulations = jp.search(struct.SIMULATIONS, config)
+    all_simulations = jp.search(struct.SIMULATIONS, config, jp.Options(dict_cls=collections.OrderedDict))
 
     # Get the simulations to run
     simulations = all_simulations.keys()
-    if jp.search(struct.SIMULATIONS_TO_RUN, config): simulations = jp.search(struct.SIMULATIONS_TO_RUN, config)
+    if jp.search(struct.SIMULATIONS_TO_RUN, config): simulations = jp.search(struct.SIMULATIONS_TO_RUN, config, jp.Options(dict_cls=collections.OrderedDict))
     if struct.DEFAULT in simulations: simulations.remove(struct.DEFAULT)
-
     
     # Get the default simulation parameter
-    default_simulation_parameters = all_simulations[struct.DEFAULT]
+    # default_simulation_parameters = OrderedDict(all_simulations[struct.DEFAULT])
 
     # Get the phase of the simulations
-
-    phase = jp.search(struct.PHASE, config)
+    phase = jp.search(struct.PHASE, config, jp.Options(dict_cls=collections.OrderedDict))
 
     if phase == 'APPLY_CONFIGURATION' or not phase:
         apply_configuration(config)
@@ -329,7 +327,7 @@ def run(user_config, queue):
 
     logger.info('merged configuration ' + json.dumps(config) + '\n')
 
-    verbosity = jp.search(struct.VERBOSITY, config)
+    verbosity = jp.search(struct.VERBOSITY, config, jp.Options(dict_cls=collections.OrderedDict))
 
     if verbosity == 0:
         return False
@@ -339,11 +337,12 @@ def run(user_config, queue):
     for simulation in simulations:
 
         # Merge default simulation parameter with this simulation
-        simulation_parameter = merge_config(copy.deepcopy(default_simulation_parameters),
-        copy.deepcopy(all_simulations[simulation]))
+        # simulation_parameter = merge_config(copy.deepcopy(default_simulation_parameters),copy.deepcopy(all_simulations[simulation]))
+        simulation_parameter = all_simulations[simulation]
 
         # Get the floating bodies
-        floating_bodies = jp.search(struct.H5_BODIES, simulation_parameter)
+        floating_bodies = jp.search(struct.H5_BODIES, simulation_parameter, jp.Options(dict_cls=collections.OrderedDict))
+  
         # Merge the default floating boadies parameter with this body parameter
         if struct.DEFAULT in floating_bodies:
             default_floating_bodies = floating_bodies[struct.DEFAULT]
@@ -394,13 +393,13 @@ if __name__ == '__main__':
         if os.path.exists(path):
             utility.log_and_print(logger, 'Processing configuration file at ' + path + '\n')
             with open(path, 'rt') as f:
-                user_config = json.load(f)
+                user_config = json.load(f, object_pairs_hook=OrderedDict)
         else: # Check if it is json string
             try:
-                user_config = json.loads(path)
+                user_config = json.loads(path, object_pairs_hook=OrderedDict)
             except Exception as e:
                 user_config = None
-        
+
         if user_config:
             logger.info('Found configuration ' + json.dumps(user_config) + '\n')
             # If there is no log file found, then we must show every thing on terminal

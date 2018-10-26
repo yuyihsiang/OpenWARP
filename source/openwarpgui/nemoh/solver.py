@@ -572,7 +572,7 @@ if __name__ == '__main__':
     custom_config = {}
     # Allow custom configuration to be passed from command line
     if len(sys.argv) > 1:
-        custom_config = json.loads(sys.argv[1])
+        custom_config = json.loads(sys.argv[1], object_pairs_hook=OrderedDict)
 
     # Allow logging setup to be disabled from command line
     if len(sys.argv) < 3:
