@@ -302,11 +302,11 @@ CONTAINS
         open(10,file=ID%ID(1:ID%lID)//'/Mesh/'//DSCRPT%ID(1:DSCRPT%lID)//'.dat')
         write(10,'(20X,I1,10X,I1)') 2,1
         do i=1,np
-            write(10,'(10X,I4,3(10X,F14.7))') i,X(i),Y(i),Z(i)
+            write(10,'(10X,I6,3(10X,F14.7))') i,X(i),Y(i),Z(i)
         end do
-        write(10,'(10X,I4,3(10X,F5.2))') 0,0.,0.,0.
+        write(10,'(10X,I6,3(10X,F5.2))') 0,0.,0.,0.
         do i=1,nf
-            write(10,'(4(10X,I4))') facette(1,i),facette(2,i),facette(3,i),facette(4,i)
+            write(10,'(4(10X,I6))') facette(1,i),facette(2,i),facette(3,i),facette(4,i)
         end do
         write(10,'(4(10X,I1))') 0,0,0,0
         close(10)

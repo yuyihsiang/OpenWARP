@@ -56,7 +56,7 @@ PROGRAM Mesh
     !   Position du maillage dans le plan (x0y)
     REAL :: tX,tY
     !   Description du flotteur en faces
-    INTEGER,PARAMETER :: nFacemx=3000
+    INTEGER,PARAMETER :: nFacemx=10000
     !   Description de tout le flotteur
     INTEGER :: nFace                        ! Nombre reel de faces
     REAL,DIMENSION(4,3,nFacemx) :: Coin        ! Coins des faces
@@ -69,8 +69,8 @@ PROGRAM Mesh
     REAL Tcol
     REAL :: lambda                                  ! Facteur d echelle
     !   Maillage proprement dit
-    INTEGER,PARAMETER :: NFMX=20000                    ! Nombre de facettes max
-    INTEGER,PARAMETER :: NPMX=20000                    ! Nombre de points max
+    INTEGER,PARAMETER :: NFMX=40000                    ! Nombre de facettes max
+    INTEGER,PARAMETER :: NPMX=40000                    ! Nombre de points max
     INTEGER :: Nmailmx        ! Nombre de facettes du maillage std max
     !   Maillage du corps
     INTEGER :: NF,NP
@@ -216,7 +216,7 @@ PROGRAM Mesh
         END DO
     END DO
     DO i=1,nFace
-        WRITE(10,'(I4,3(2X,I4))') 1+(i-1)*4,2+(i-1)*4,3+(i-1)*4,4+(i-1)*4
+        WRITE(10,'(I6,3(2X,I6))') 1+(i-1)*4,2+(i-1)*4,3+(i-1)*4,4+(i-1)*4
     END DO
     CLOSE(10)
     OPEN(10,file=ID%ID(1:ID%lID)//'/Mesh/Description_Wetted.tec')
@@ -227,7 +227,7 @@ PROGRAM Mesh
         end do
     end do
     do i=1,nFacem
-        WRITE(10,'(I4,3(2X,I4))') 1+(i-1)*4,2+(i-1)*4,3+(i-1)*4,4+(i-1)*4
+        WRITE(10,'(I6,3(2X,I6))') 1+(i-1)*4,2+(i-1)*4,3+(i-1)*4,4+(i-1)*4
     end do
     CLOSE(10)
     write(*,*) ' -> Make mesh '

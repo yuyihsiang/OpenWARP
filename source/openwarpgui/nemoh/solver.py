@@ -319,8 +319,8 @@ def save_hydroinfo(cg,cb,disVol,Warea, filename):
     with open(filename, 'w') as inp:
 #         print "XF = %(cb) 7.3f - XG = %(cg) 7.3f" % {"cb":cb(1), "cg":cb(1)}
          inp.write("XF = %7.3f - XG =  %7.3f\n" % (cb[0],cg[0]))
-         inp.write("XF = %7.3f - XG =  %7.3f\n" % (cb[1],cg[1]))
-         inp.write("XF = %7.3f - XG =  %7.3f\n" % (cb[2],cg[2]))
+         inp.write("YF = %7.3f - YG =  %7.3f\n" % (cb[1],cg[1]))
+         inp.write("ZF = %7.3f - ZG =  %7.3f\n" % (cb[2],cg[2]))
          inp.write("Displacement = %E\n" % disVol)
          inp.write("Waterplane area = %E" % Warea)
 
