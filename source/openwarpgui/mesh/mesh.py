@@ -859,10 +859,6 @@ def read(file_name):
     #mesh_data.files['nemoh'] = os.path.dirname(file_name)+ tail + '.dat'
     mesh_data.files['png'] = os.path.splitext(file_name)[0] + '.png'
 
-    if mesh_data.VTK_installed is True:
-
-        mesh_data._create_vtp_mesh()
-
     print 'Successfully read mesh file: ' + str(file_name)
 
     return mesh_data
