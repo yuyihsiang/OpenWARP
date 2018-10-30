@@ -69,8 +69,8 @@ PROGRAM Mesh
     REAL Tcol
     REAL :: lambda                                  ! Facteur d echelle
     !   Maillage proprement dit
-    INTEGER,PARAMETER :: NFMX=40000                    ! Nombre de facettes max
-    INTEGER,PARAMETER :: NPMX=40000                    ! Nombre de points max
+    INTEGER,PARAMETER :: NFMX=80000                    ! Nombre de facettes max
+    INTEGER,PARAMETER :: NPMX=80000                    ! Nombre de points max
     INTEGER :: Nmailmx        ! Nombre de facettes du maillage std max
     !   Maillage du corps
     INTEGER :: NF,NP
@@ -105,7 +105,7 @@ PROGRAM Mesh
     READ(10,*) xG,yG,zG
     READ(10,*) Nmailmx
     CLOSE(10)
-    OPEN(10,file=ID%ID(1:ID%lID)//'/Mesh/'//DSCRPT%ID(1:DSCRPT%lID))
+    OPEN(10,file=ID%ID(1:ID%lID)//DSCRPT%ID(1:DSCRPT%lID))
     READ(10,*) Np
     READ(10,*) nFace
     DO i=1,Np
@@ -166,7 +166,7 @@ PROGRAM Mesh
         END DO
         Np=Np+4
     END DO
-    CALL HYDRO(X,Y,Z,FACETTE,NF,DEPLACEMENT,XF,YF,ZF,SF,KH,Xm,Ym,Zm,NPm,FACETTEm,NFm)
+    CALL HYDRO(X,Y,Z,FACETTE,NF,DEPLACEMENT,XF,YF,ZF,SF,KH,Xm,Ym,Zm,NPm,FACETTEm,NFm,1000.,9.81)
     IF (Tcol.GT.0) THEN
         CALL calCol(NFm,Xm,Ym,Zm,Facettem,Tcol,nFacemx)
     END IF
@@ -200,7 +200,7 @@ PROGRAM Mesh
         WRITE(*,'(A,F7.3,1X,A,F7.3)') ' XF = ',XF+xG,' XG = ',xG
         WRITE(*,'(A,F7.3,1X,A,F7.3)') ' YF = ',YF+yG,' YG = ',yG
     END IF
-    OPEN(10,FILE=ID%ID(1:ID%lID)//'/Mesh/Hydrostatics.dat')
+    OPEN(10,FILE=ID%ID(1:ID%lID)//'Hydrostatics.dat')
     WRITE(10,'(A,F7.3,A,F7.3)') ' XF = ',XF+xG,' - XG = ',xG
     WRITE(10,'(A,F7.3,A,F7.3)') ' YF = ',YF+yG,' - YG = ',yG
     WRITE(10,'(A,F7.3,A,F7.3)') ' ZF = ',ZF,' - ZG = ',zG
@@ -208,7 +208,7 @@ PROGRAM Mesh
     WRITE(10,'(A,E14.7)') ' Waterplane area = ',SF
     CLOSE(10)
     !    Sauvegarde de la description du maillage et de la partie immergee
-    OPEN(10,file=ID%ID(1:ID%lID)//'/Mesh/Description_Full.tec')
+    OPEN(10,file=ID%ID(1:ID%lID)//'Description_Full.tec')
     WRITE(10,*) 'ZONE N=',4*nFace,',E=',nFace,',F=FEPOINT,ET=QUADRILATERAL'
     DO i=1,nFace
         DO j=1,4
@@ -219,7 +219,7 @@ PROGRAM Mesh
         WRITE(10,'(I6,3(2X,I6))') 1+(i-1)*4,2+(i-1)*4,3+(i-1)*4,4+(i-1)*4
     END DO
     CLOSE(10)
-    OPEN(10,file=ID%ID(1:ID%lID)//'/Mesh/Description_Wetted.tec')
+    OPEN(10,file=ID%ID(1:ID%lID)//'Description_Wetted.tec')
     WRITE(10,*) 'ZONE N=',4*nFacem,',E=',nFacem,',F=FEPOINT,ET=QUADRILATERAL'
     do i=1,nFacem
         do j=1,4
@@ -251,7 +251,7 @@ PROGRAM Mesh
         X(j)=X(j)-xG
         Y(j)=Y(j)-yG
     END DO
-    CALL HYDRO(X,Y,Z,FACETTE,NF,DEPLACEMENT,XF,YF,ZF,SF,KH,Xm,Ym,Zm,NPm,FACETTEm,NFm)
+    CALL HYDRO(X,Y,Z,FACETTE,NF,DEPLACEMENT,XF,YF,ZF,SF,KH,Xm,Ym,Zm,NPm,FACETTEm,NFm,1000.,9.81)
     DO j=1,NP
         X(j)=X(j)+xG
         Y(j)=Y(j)+yG
@@ -272,7 +272,7 @@ PROGRAM Mesh
     END IF
     KH(4,4)=KH(4,4)+deplacement*1000.*9.81*(ZF-ZG)
     KH(5,5)=KH(5,5)+deplacement*1000.*9.81*(ZF-ZG)
-    OPEN(10,FILE=ID%ID(1:ID%lID)//'/Mesh/KH.dat')
+    OPEN(10,FILE=ID%ID(1:ID%lID)//'KH.dat')
     DO i=1,6
         WRITE(10,'(6(1X,E14.7))') (KH(i,j),j=1,6)
     END DO
@@ -280,10 +280,10 @@ PROGRAM Mesh
     write(*,*) ' -> Calculate hull mass and inertia '
     WRITE(*,*) ' '
     CALL coque(X,Y,Z,facette,NF,Deplacement,Icoque,Gcoque)
-    OPEN(10,FILE=ID%ID(1:ID%lID)//'/Mesh/GC_hull.dat')
+    OPEN(10,FILE=ID%ID(1:ID%lID)//'GC_hull.dat')
     WRITE(10,'(3(1X,E14.7))') Gcoque(1),Gcoque(2),Gcoque(3)
     CLOSE(10)
-    OPEN(10,FILE=ID%ID(1:ID%lID)//'/Mesh/Inertia_hull.dat')
+    OPEN(10,FILE=ID%ID(1:ID%lID)//'Inertia_hull.dat')
     DO i=1,3
         WRITE(10,'(3(1X,E14.7))') (Icoque(i,j),j=1,3)
     END DO
