@@ -262,9 +262,13 @@ def write_result(hdf5_data, data):
     dset[:, :, :] = data["stifness"]        
 
     for i in range(len(dset[:, :, :])):
-        kh_file=os.path.dirname(sys.argv[-1]) + "/mesh/KH_" + str(i) + ".dat"
+        if len(dset[:, :, :])==1:
+            kh_file=os.path.dirname(sys.argv[-1]) + "/mesh/KH.dat"
+            hydroInfo_file=os.path.dirname(sys.argv[-1]) + "/mesh/Hydrostatics.dat"
+        else:
+            kh_file=os.path.dirname(sys.argv[-1]) + "/mesh/KH_" + str(i) + ".dat"
+            hydroInfo_file=os.path.dirname(sys.argv[-1]) + "/mesh/Hydrostatics_" + str(i) + ".dat"
         save_stifness(dset[i, :, :], kh_file)
-        hydroInfo_file=os.path.dirname(sys.argv[-1]) + "/mesh/Hydrostatics_" + str(i) + ".dat"
         j = i*6+3
         save_hydroinfo(data["rad_case"][j,5:8],data["center_buoyancy"][i,:],data["displacement"][i],data["waterplane_area"][i], hydroInfo_file)
 
@@ -298,18 +302,21 @@ def save_stifness(result, filename):
     utility.log_exit(logger, signature, [None])
 
 
-def save_hydroinfo(cg,cb,disVol,Warea, filename):
+def save_hydroinfo(cg,cf,disVol,Warea, filename):
     """
     Saves the radiation coefficient to a file in tec format
     Args:
         result: object, the hydrodynamic coefficients cases
         filename: The path to the file where to save
+    cb[0] = cf[0] + cg[0] 
+    cb[1] = cf[1] + cg[1]
+    cb[2] = cf[2] 
     """
     signature = __name__ + '.save_hydroinfo(result, filename)'
     logger = logging.getLogger(__name__)
     utility.log_entrance(logger, signature,
                          {"cg": str(cg),
-                          "cb": str(cb),
+                          "cf": str(cf),
                           "disVol": str(disVol),
                           "Warea": str(Warea),
                           'filename': str(filename)})
@@ -318,9 +325,9 @@ def save_hydroinfo(cg,cb,disVol,Warea, filename):
 
     with open(filename, 'w') as inp:
 #         print "XF = %(cb) 7.3f - XG = %(cg) 7.3f" % {"cb":cb(1), "cg":cb(1)}
-         inp.write("XF = %7.3f - XG =  %7.3f\n" % (cb[0],cg[0]))
-         inp.write("YF = %7.3f - YG =  %7.3f\n" % (cb[1],cg[1]))
-         inp.write("ZF = %7.3f - ZG =  %7.3f\n" % (cb[2],cg[2]))
+         inp.write("XB = %7.3f - XG =  %7.3f\n" % (cf[0]+cg[0],cg[0]))
+         inp.write("YB = %7.3f - YG =  %7.3f\n" % (cf[1]+cg[1],cg[1]))
+         inp.write("ZB = %7.3f - ZG =  %7.3f\n" % (cf[2]      ,cg[2]))
          inp.write("Displacement = %E\n" % disVol)
          inp.write("Waterplane area = %E" % Warea)
 

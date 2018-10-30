@@ -152,8 +152,8 @@ CONTAINS
             WRITE(*,*) ' '
             WRITE(*,'(A,I3)') ' Buoyancy center and gravity center are not vertically aligned. '
             WRITE(*,*) ' This is not an equilibrium position.'
-            WRITE(*,'(A,F7.3,1X,A,F7.3)') ' XF = ',XF+xG,' XG = ',xG
-            WRITE(*,'(A,F7.3,1X,A,F7.3)') ' YF = ',YF+yG,' YG = ',yG
+            WRITE(*,'(A,F7.3,1X,A,F7.3)') ' XB = ',XF+xG,' XG = ',xG
+            WRITE(*,'(A,F7.3,1X,A,F7.3)') ' YB = ',YF+yG,' YG = ',yG
         END IF
 
         KH(4,4)=KH(4,4)+deplacement*ct_RHO*ct_G*(ZF-ZG)

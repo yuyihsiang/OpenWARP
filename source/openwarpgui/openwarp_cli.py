@@ -305,7 +305,7 @@ def run(user_config, queue):
 
     # Merge default configuration with user configuration
     config = merge_config(copy.deepcopy(user_config), copy.deepcopy(default_config))
-    
+
     # Get all simulations
     all_simulations = jp.search(struct.SIMULATIONS, config, jp.Options(dict_cls=collections.OrderedDict))
 
@@ -313,7 +313,7 @@ def run(user_config, queue):
     simulations = all_simulations.keys()
     if jp.search(struct.SIMULATIONS_TO_RUN, config): simulations = jp.search(struct.SIMULATIONS_TO_RUN, config, jp.Options(dict_cls=collections.OrderedDict))
     if struct.DEFAULT in simulations: simulations.remove(struct.DEFAULT)
-    
+
     # Get the default simulation parameter
     # default_simulation_parameters = OrderedDict(all_simulations[struct.DEFAULT])
 
