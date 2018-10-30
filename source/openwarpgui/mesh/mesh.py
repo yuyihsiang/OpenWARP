@@ -50,8 +50,8 @@ from platform import system as _system
 
 
 
-class VTK_Exception(Exception):
-    pass
+# class VTK_Exception(Exception):
+#     pass
 
 class PanelMesh(object):
     ''' Class to store mesh data. All mesh data is currently read and stored
@@ -601,80 +601,6 @@ class PanelMesh(object):
             raise Exception('The open function is only supported for OSX')
 
 
-    def _create_vtp_mesh(self):
-        '''Internal function to creat a VTP mesh from the imported mesh data
-        '''
-        if self.VTK_installed is True:
-
-            self.vtp_mesh    = vtk.vtkPolyData()
-            points  = vtk.vtkPoints()
-            polys   = vtk.vtkCellArray()
-		
-            for i in range(self.points.shape[0]):
-		x= self.points[i]
-		#print type(x)
-		# type could be either numpy.ndarray or list 
-		if type(x).__module__ == np.__name__ :
-			#print "[DEBUG:]type is ndarray, converting into float"
-			y = x.astype(np.float)
-			points.InsertPoint(i, y)		
-		
-		elif isinstance(x,list):
-			#print "[DEBUG:]type is list, converting list int float!"
-			y= [float(j) for j in x]
-			if len(y)>3:
-				#print "[DEBUG:]size of list > 3"
-				y=y[:3]
-			elif len(y)<3:
-				# Expand the list up to 10 elements with zeros.
-				for n in range(len(y), 3):
-    					y.append(0)
-							
-			points.InsertPoint(i, y)
-		
-		else :
-			points.InsertPoint(i, self.points[i])
-            
-
-            for i in range(self.faces.shape[0]):
-
-                polys.InsertNextCell(_mk_vtk_id_list(self.faces[i]))
-
-            self.vtp_mesh.SetPoints(points)
-            self.vtp_mesh.SetPolys(polys)
-
-    # def _collapse(self,plane=2,value=0.0,direction=1):
-    #This function is not yet working 100%
-
-    #     '''Collapse points
-    #     '''
-    #     for face,face_n in xrange(self.faces.shape[0]):
-    #
-    #         for j in xrange(self.faces[i].size):
-    #
-    #             p = int(self.faces[i][j])
-    #
-    #             if self.points[p][plane] > value*direction:
-    #
-    #                 self.points[p][plane] = value
-
-    def _write_vtp(self):
-        '''Internal function to write VTK PolyData mesh files
-        '''
-        if self.VTK_installed is False:
-
-            raise VTK_Exception('VTK must be installed write VTP/VTK meshes, please select a different output mesh_format')
-
-        writer = vtk.vtkXMLPolyDataWriter()
-        writer.SetFileName(self.files['vtp'])
-        if vtk.VTK_MAJOR_VERSION >= 6:
-            writer.SetInputData(self.vtp_mesh)
-        else:
-            writer.SetInput(self.vtp_mesh)
-        writer.SetDataModeToAscii()
-        writer.Write()
-
-        print 'Wrote VTK PolyData mesh to: ' + str(self.files['vtp'])
 
     def _write_nemoh(self,refShift):
         '''Internal function to write NEMOH mesh files
