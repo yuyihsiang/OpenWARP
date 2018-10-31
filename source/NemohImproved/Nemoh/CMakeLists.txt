@@ -46,12 +46,12 @@ if(WIN32)
 	endif()
 elseif (UNIX)
 	if ("${CMAKE_Fortran_COMPILER_ID}" STREQUAL "Intel")
-		set(CMAKE_Fortran_FLAGS "-stand -qopenmp -mkl -fast -heap-arrays 1024")
-		set(CMAKE_Fortran_FLAGS_DEBUG "-stand -qopenmp -mkl -traceback -g -fp-model source -check all -warn all -debug all -heap-arrays 1024")
-		set(CMAKE_Fortran_FLAGS_RELEASE "-stand -qopenmp -mkl -fast -heap-arrays 1024")
+		set(CMAKE_Fortran_FLAGS "-stand -qopenmp -lmkl_rt -fast -heap-arrays 1024")
+		set(CMAKE_Fortran_FLAGS_DEBUG "-stand -qopenmp -lmkl_rt -traceback -g -fp-model source -check all -warn all -debug all -heap-arrays 1024")
+		set(CMAKE_Fortran_FLAGS_RELEASE "-stand -qopenmp -lmkl_rt -fast -heap-arrays 1024")
 	
 		# You can uncomment the following lines for further optimisation but doing so results will not be completely exact with original version.
-		set(CMAKE_Fortran_FLAGS "-stand -qopenmp -mkl -fast -heap-arrays 1024")
+		set(CMAKE_Fortran_FLAGS "-stand -qopenmp -lmkl_rt -fast -heap-arrays 1024")
 		
 	elseif ("${CMAKE_Fortran_COMPILER_ID}" STREQUAL "GNU")
 		set(CMAKE_Fortran_FLAGS_DEBUG "-Wall  -std=f2008 -fopenmp   -O0  -g  -Wextra -fimplicit-none -fbounds-check -fbacktrace ")		
