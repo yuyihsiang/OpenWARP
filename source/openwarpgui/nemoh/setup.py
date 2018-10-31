@@ -32,7 +32,7 @@ if "cleanall" in args:
       os.remove(name)
     shutil.rmtree('build', True)
     for name in glob.glob('*.c'):
-      os.remove(name)
+      os.remove(name)      
 
     # Now do a normal clean
     sys.argv[1] = "clean"
