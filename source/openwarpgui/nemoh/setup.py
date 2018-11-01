@@ -33,7 +33,6 @@ if "cleanall" in args:
     shutil.rmtree('build', True)
     for name in glob.glob('*.c'):
       os.remove(name)      
-
     # Now do a normal clean
     sys.argv[1] = "clean"
 
@@ -44,7 +43,7 @@ setup(
               libraries=["nemoh"],
               include_dirs=[np.get_include()],
               # Disabled as do not work in all os
-              #library_dirs=[os.path.join(os.getcwd(), 'bundled', 'simulation', 'libs')],
+              library_dirs=[os.path.join(os.path.dirname(os.getcwd()), 'bundled', 'simulation', 'libs')],
               #runtime_library_dirs=[os.path.join(os.getcwd(), 'bundled', 'simulation', 'libs')]
     ),
 

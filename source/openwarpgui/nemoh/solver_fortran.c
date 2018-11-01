@@ -13,6 +13,9 @@
         "libraries": [
             "nemoh"
         ], 
+        "library_dirs": [
+            "/Users/yyu/Documents/GitHub/OpenWARP/source/openwarpgui/bundled/simulation/libs"
+        ], 
         "name": "solver_fortran", 
         "sources": [
             "solver_fortran.pyx"

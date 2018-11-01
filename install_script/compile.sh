@@ -72,6 +72,9 @@ elif [ "$OSTYPE"="Darwin" ];then
 	
 	echo "Command to test the library path is correctly set "
 	(test -e "$FORTRAN_BUILD/libnemoh.dylib" && echo ’Success’ ) || echo ’Error:Nemoh library not found’.
+	echo "Command to test the library path is correctly set "
+	cp "$FORTRAN_BUILD/libnemoh.dylib" "$INSTALL_PATH/openwarpgui/bundled/simulation/libs/"
+	(test -e "$INSTALL_PATH/openwarpgui/bundled/simulation/libs/libnemoh.dylib" && echo ’Success’ ) || echo ’Error:Nemoh library not found’.
 	
 	
 	cd ${ROOT}/openwarpgui/nemoh/

@@ -1,0 +1,217 @@
+Process Process-4:
+Traceback (most recent call last):
+  File "/home/yyu/anaconda2/lib/python2.7/multiprocessing/process.py", line 267, in _bootstrap
+    self.run()
+  File "/home/yyu/anaconda2/lib/python2.7/multiprocessing/process.py", line 114, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/yyu/opt/OpenWARP/source/openwarpgui/nemoh/postprocessor.py", line 716, in run_as_process
+    return postprocess(custom_config)
+  File "/home/yyu/opt/OpenWARP/source/openwarpgui/nemoh/postprocessor.py", line 706, in postprocess
+    run(hdf5_db, custom_config)
+  File "/home/yyu/opt/OpenWARP/source/openwarpgui/nemoh/postprocessor.py", line 563, in run
+    result = read_results(hdf5_data)
+  File "/home/yyu/opt/OpenWARP/source/openwarpgui/nemoh/postprocessor.py", line 215, in read_results
+    location=structure.H5_RESULTS_CASE_FORCE)
+  File "/home/yyu/opt/OpenWARP/source/openwarpgui/nemoh/utility.py", line 911, in check_dataset_type
+    allow_none=allow_none, print_value=print_value, none_msg=none_msg)
+  File "/home/yyu/opt/OpenWARP/source/openwarpgui/nemoh/utility.py", line 874, in check_type_value
+    raise ValueError(message + ' should not be None.' + none_msg)
+ValueError: The case force of value None should not be None.The case force was not found in the hdf5 file at its location results/case/forceProcess Process-4:
+Traceback (most recent call last):
+  File "/home/yyu/anaconda2/lib/python2.7/multiprocessing/process.py", line 267, in _bootstrap
+    self.run()
+  File "/home/yyu/anaconda2/lib/python2.7/multiprocessing/process.py", line 114, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/yyu/opt/OpenWARP/source/openwarpgui/nemoh/postprocessor.py", line 716, in run_as_process
+    return postprocess(custom_config)
+  File "/home/yyu/opt/OpenWARP/source/openwarpgui/nemoh/postprocessor.py", line 706, in postprocess
+    run(hdf5_db, custom_config)
+  File "/home/yyu/opt/OpenWARP/source/openwarpgui/nemoh/postprocessor.py", line 563, in run
+    result = read_results(hdf5_data)
+  File "/home/yyu/opt/OpenWARP/source/openwarpgui/nemoh/postprocessor.py", line 215, in read_results
+    location=structure.H5_RESULTS_CASE_FORCE)
+  File "/home/yyu/opt/OpenWARP/source/openwarpgui/nemoh/utility.py", line 911, in check_dataset_type
+    allow_none=allow_none, print_value=print_value, none_msg=none_msg)
+  File "/home/yyu/opt/OpenWARP/source/openwarpgui/nemoh/utility.py", line 874, in check_type_value
+    raise ValueError(message + ' should not be None.' + none_msg)
+ValueError: The case force of value None should not be None.The case force was not found in the hdf5 file at its location results/case/forceforces is not none 
+/home/yyu/Runs/RM3/results/radiationcoefficients.tec contains the radiation coefficients in tec format.
+
+/home/yyu/Runs/RM3/results/diffractionforce.tec contains the diffraction forces in tec format.
+
+/home/yyu/Runs/RM3/results/excitationforce.tec contains the excitation forces in tec format.
+
+/home/yyu/Runs/RM3/results/WaveField.tec contains the wave elevation in tec format.
+
+The post processing results are saved in the hdf5 file /home/yyu/Runs/RM3/db.hdf5forces is not none 
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/radiationcoefficients.tec contains the radiation coefficients in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/diffractionforce.tec contains the diffraction forces in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/excitationforce.tec contains the excitation forces in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/WaveField.tec contains the wave elevation in tec format.
+
+The post processing results are saved in the hdf5 file /Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/db.hdf5forces is not none 
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/radiationcoefficients.tec contains the radiation coefficients in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/diffractionforce.tec contains the diffraction forces in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/excitationforce.tec contains the excitation forces in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/WaveField.tec contains the wave elevation in tec format.
+
+The post processing results are saved in the hdf5 file /Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/db.hdf5forces is not none 
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/radiationcoefficients.tec contains the radiation coefficients in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/diffractionforce.tec contains the diffraction forces in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/excitationforce.tec contains the excitation forces in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/WaveField.tec contains the wave elevation in tec format.
+
+The post processing results are saved in the hdf5 file /Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/db.hdf5forces is not none 
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/radiationcoefficients.tec contains the radiation coefficients in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/diffractionforce.tec contains the diffraction forces in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/excitationforce.tec contains the excitation forces in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/WaveField.tec contains the wave elevation in tec format.
+
+The post processing results are saved in the hdf5 file /Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/db.hdf5forces is not none 
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/radiationcoefficients.tec contains the radiation coefficients in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/diffractionforce.tec contains the diffraction forces in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/excitationforce.tec contains the excitation forces in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/WaveField.tec contains the wave elevation in tec format.
+
+The post processing results are saved in the hdf5 file /Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/db.hdf5forces is not none 
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/radiationcoefficients.tec contains the radiation coefficients in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/diffractionforce.tec contains the diffraction forces in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/excitationforce.tec contains the excitation forces in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/WaveField.tec contains the wave elevation in tec format.
+
+The post processing results are saved in the hdf5 file /Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/db.hdf5forces is not none 
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/radiationcoefficients.tec contains the radiation coefficients in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/diffractionforce.tec contains the diffraction forces in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/excitationforce.tec contains the excitation forces in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/WaveField.tec contains the wave elevation in tec format.
+
+The post processing results are saved in the hdf5 file /Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/db.hdf5forces is not none 
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/radiationcoefficients.tec contains the radiation coefficients in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/diffractionforce.tec contains the diffraction forces in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/excitationforce.tec contains the excitation forces in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/results/WaveField.tec contains the wave elevation in tec format.
+
+The post processing results are saved in the hdf5 file /Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3/db.hdf5forces is not none 
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3float/results/radiationcoefficients.tec contains the radiation coefficients in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3float/results/diffractionforce.tec contains the diffraction forces in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3float/results/excitationforce.tec contains the excitation forces in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3float/results/WaveField.tec contains the wave elevation in tec format.
+
+The post processing results are saved in the hdf5 file /Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3float/db.hdf5forces is not none 
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3float/results/radiationcoefficients.tec contains the radiation coefficients in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3float/results/diffractionforce.tec contains the diffraction forces in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3float/results/excitationforce.tec contains the excitation forces in tec format.
+
+/Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3float/results/WaveField.tec contains the wave elevation in tec format.
+
+The post processing results are saved in the hdf5 file /Users/yyu/Dropbox/WorksNREL/ResearchWork/OpenWarpTest/Runs/Comparison/nemoh/RM3float/db.hdf5forces is not none 
+/Users/yyu/Desktop/RM3float/results/radiationcoefficients.tec contains the radiation coefficients in tec format.
+
+/Users/yyu/Desktop/RM3float/results/diffractionforce.tec contains the diffraction forces in tec format.
+
+/Users/yyu/Desktop/RM3float/results/excitationforce.tec contains the excitation forces in tec format.
+
+/Users/yyu/Desktop/RM3float/results/WaveField.tec contains the wave elevation in tec format.
+
+The post processing results are saved in the hdf5 file /Users/yyu/Desktop/RM3float/db.hdf5forces is not none 
+/Users/yyu/Desktop/RM3float/results/radiationcoefficients.tec contains the radiation coefficients in tec format.
+
+/Users/yyu/Desktop/RM3float/results/diffractionforce.tec contains the diffraction forces in tec format.
+
+/Users/yyu/Desktop/RM3float/results/excitationforce.tec contains the excitation forces in tec format.
+
+/Users/yyu/Desktop/RM3float/results/WaveField.tec contains the wave elevation in tec format.
+
+The post processing results are saved in the hdf5 file /Users/yyu/Desktop/RM3float/db.hdf5forces is not none 
+/Users/yyu/Desktop/RM3float/results/radiationcoefficients.tec contains the radiation coefficients in tec format.
+
+/Users/yyu/Desktop/RM3float/results/diffractionforce.tec contains the diffraction forces in tec format.
+
+/Users/yyu/Desktop/RM3float/results/excitationforce.tec contains the excitation forces in tec format.
+
+/Users/yyu/Desktop/RM3float/results/WaveField.tec contains the wave elevation in tec format.
+
+The post processing results are saved in the hdf5 file /Users/yyu/Desktop/RM3float/db.hdf5DEBUG: forces is none
+/Users/yyu/Desktop/RM3float/results/radiationcoefficients.tec contains the radiation coefficients in tec format.
+
+/Users/yyu/Desktop/RM3float/results/diffractionforce.tec contains the diffraction forces in tec format.
+
+/Users/yyu/Desktop/RM3float/results/excitationforce.tec contains the excitation forces in tec format.
+
+/Users/yyu/Desktop/RM3float/results/WaveField.tec contains the wave elevation in tec format.
+
+The post processing results are saved in the hdf5 file /Users/yyu/Desktop/RM3float/db.hdf5DEBUG: forces is none
+/Users/yyu/Desktop/RM3float/results/radiationcoefficients.tec contains the radiation coefficients in tec format.
+
+/Users/yyu/Desktop/RM3float/results/diffractionforce.tec contains the diffraction forces in tec format.
+
+/Users/yyu/Desktop/RM3float/results/excitationforce.tec contains the excitation forces in tec format.
+
+/Users/yyu/Desktop/RM3float/results/WaveField.tec contains the wave elevation in tec format.
+
+The post processing results are saved in the hdf5 file /Users/yyu/Desktop/RM3float/db.hdf5DEBUG: forces is none
+/Users/yyu/Desktop/RM3float/results/radiationcoefficients.tec contains the radiation coefficients in tec format.
+
+/Users/yyu/Desktop/RM3float/results/diffractionforce.tec contains the diffraction forces in tec format.
+
+/Users/yyu/Desktop/RM3float/results/excitationforce.tec contains the excitation forces in tec format.
+
+/Users/yyu/Desktop/RM3float/results/WaveField.tec contains the wave elevation in tec format.
+
+The post processing results are saved in the hdf5 file /Users/yyu/Desktop/RM3float/db.hdf5forces is not none 
+/Users/yyu/Desktop/RM3float/results/radiationcoefficients.tec contains the radiation coefficients in tec format.
+
+/Users/yyu/Desktop/RM3float/results/diffractionforce.tec contains the diffraction forces in tec format.
+
+/Users/yyu/Desktop/RM3float/results/excitationforce.tec contains the excitation forces in tec format.
+
+/Users/yyu/Desktop/RM3float/results/WaveField.tec contains the wave elevation in tec format.
+
+The post processing results are saved in the hdf5 file /Users/yyu/Desktop/RM3float/db.hdf5forces is not none 
+/Users/yyu/Desktop/RM3float/results/radiationcoefficients.tec contains the radiation coefficients in tec format.
+
+/Users/yyu/Desktop/RM3float/results/diffractionforce.tec contains the diffraction forces in tec format.
+
+/Users/yyu/Desktop/RM3float/results/excitationforce.tec contains the excitation forces in tec format.
+
+/Users/yyu/Desktop/RM3float/results/WaveField.tec contains the wave elevation in tec format.
+
+The post processing results are saved in the hdf5 file /Users/yyu/Desktop/RM3float/db.hdf5forces is not none 
+/Users/yyu/Desktop/RM3float/results/radiationcoefficients.tec contains the radiation coefficients in tec format.
+
+/Users/yyu/Desktop/RM3float/results/diffractionforce.tec contains the diffraction forces in tec format.
+
+/Users/yyu/Desktop/RM3float/results/excitationforce.tec contains the excitation forces in tec format.
+
+/Users/yyu/Desktop/RM3float/results/WaveField.tec contains the wave elevation in tec format.
+
+The post processing results are saved in the hdf5 file /Users/yyu/Desktop/RM3float/db.hdf5
