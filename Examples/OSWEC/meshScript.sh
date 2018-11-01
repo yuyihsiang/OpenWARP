@@ -35,7 +35,8 @@ rm db.hdf5
 rm -rf results
 #cd "$INSTALL_PATH"
 
-python "$INSTALL_PATH/openwarpgui/mesh/GDFtoDAT.py" "$DIR/mesh/float.gdf" [0,0,-0.72]
+python "$INSTALL_PATH/openwarpgui/mesh/GDFtoDAT.py" "$DIR/mesh/flap.gdf" [0,0,-3.9]
+python "$INSTALL_PATH/openwarpgui/mesh/GDFtoDAT.py" "$DIR/mesh/base.gdf" [0,0,-10.9]
 
 ## python "$INSTALL_PATH/openwarpgui/openwarp_cli.py" "$DIR/Nemoh.json"
 echo "--> Nemoh run finished successfully"

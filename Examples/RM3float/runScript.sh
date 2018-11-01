@@ -14,7 +14,8 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
 done
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
-INSTALL_PATH="/Users/yyu/Documents/GitHub/OpenWARP/source"
+#INSTALL_PATH="/Users/yyu/Documents/GitHub/OpenWARP/source"
+INSTALL_PATH=$NEMOHPATH
 ROOT="$DIR"
 
 export LD_LIBRARY_PATH="$INSTALL_PATH/openwarpgui/bundled/simulation/libs:$LD_LIBRARY_PATH"

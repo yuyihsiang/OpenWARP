@@ -14,13 +14,14 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
 done
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
-INSTALL_PATH="/Users/yyu/Documents/GitHub/OpenWARP/source"
+#INSTALL_PATH="/Users/yyu/Documents/GitHub/OpenWARP/source"
+INSTALL_PATH=$NEMOHPATH
 ROOT="$DIR"
 
 export LD_LIBRARY_PATH="$INSTALL_PATH/openwarpgui/bundled/simulation/libs:$LD_LIBRARY_PATH"
 export LDFLAGS="-L$INSTALL_PATH/openwarpgui/bundled/simulation/libs"
 export PYTOHNPATH="$INSTALL_PATH"
-export OMP_NUM_THREADS=4
+export OMP_NUM_THREADS=3
 
 mkdir -p ~/OpenWarpFiles/temp
 mkdir -p ~/OpenWarpFiles/user_data
@@ -32,5 +33,5 @@ echo "------------------------"
 rm db.hdf5
 rm -rf results
 cd "$INSTALL_PATH"
-python "$INSTALL_PATH/openwarpgui/openwarp_cli.py" "$DIR/OSWEC.json"
+python "$INSTALL_PATH/openwarpgui/openwarp_cli.py" "$DIR/Nemoh.json"
 echo "--> Nemoh run finished successfully"
