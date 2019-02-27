@@ -28,6 +28,7 @@ import subprocess
 from openwarp import settings as openwarp_settings
 from collections import OrderedDict
 
+os.environ['KMP_DUPLICATE_LIB_OK']='True'
 # script file
 SCRIPT = os.path.realpath(__file__)
 
