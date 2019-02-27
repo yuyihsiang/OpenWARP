@@ -616,7 +616,8 @@ class PanelMesh(object):
                 a=eval(self.points[i,0])+refShift[0]
                 b=eval(self.points[i,1])+refShift[1]
                 c=eval(self.points[i,2])+refShift[2]
-                self.points_modT[i]=[a,b,c]
+                if c<=0:
+                   self.points_modT[i]=[a,b,c]
 
             k = 0
             j = 0
